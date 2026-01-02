@@ -1,1 +1,5 @@
 GEMINI.md
+*.png
+*.jpg
+!imgs/*.png
+!imgs/*.jpg
