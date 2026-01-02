@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iván Sebastián Loor Weir - Cloud Engineer & Azure Administrator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, Georgia, serif;
+            line-height: 1.7;
+            color: #1a1a1a;
+            background: #0a0a0a;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            margin-bottom: 100px;
+            padding: 60px 0;
+            text-align: left;
+        }
+
+        .header-text {
+            flex: 1;
+        }
+
+        h1 {
+            font-size: 4em;
+            font-weight: 300;
+            margin-bottom: 15px;
+            color: #ffffff;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .subtitle {
+            font-size: 1.4em;
+            color: #a0a0a0;
+            font-weight: 300;
+            letter-spacing: 0.02em;
+            margin-bottom: 25px;
+        }
+
+        .header-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header-link {
+            display: inline-flex;
+            align-items: center;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.95em;
+            font-weight: 300;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .header-link:hover {
+            border-color: #ffffff;
+            color: #ffffff;
+        }
+
+        .about {
+            background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+            padding: 60px;
+            border-radius: 2px;
+            margin-bottom: 60px;
+            border: 1px solid #2a2a2a;
+        }
+
+        .about h2 {
+            color: #ffffff;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+            font-weight: 300;
+            letter-spacing: -0.01em;
+        }
+
+        .about p {
+            margin-bottom: 20px;
+            font-size: 1.15em;
+            color: #c0c0c0;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        .about ul {
+            margin-left: 30px;
+            color: #b0b0b0;
+            font-size: 1.1em;
+            font-weight: 300;
+        }
+
+        .about li {
+            margin-bottom: 12px;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 35px;
+        }
+
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 2px;
+            font-size: 0.95em;
+            font-weight: 300;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .section {
+            margin-bottom: 80px;
+        }
+
+        .section h2 {
+            color: #ffffff;
+            margin-bottom: 50px;
+            font-size: 2.5em;
+            font-weight: 300;
+            letter-spacing: -0.01em;
+            border-bottom: 1px solid #2a2a2a;
+            padding-bottom: 20px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+        }
+
+        .project-card {
+            background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+            border: 1px solid #2a2a2a;
+            border-radius: 2px;
+            padding: 40px;
+            transition: all 0.4s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: #4a4a4a;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .project-card h3 {
+            color: #ffffff;
+            margin-bottom: 15px;
+            font-size: 1.6em;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .stars {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            padding: 4px 12px;
+            border-radius: 2px;
+            font-size: 0.7em;
+            font-weight: 300;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .project-card p {
+            color: #b0b0b0;
+            margin-bottom: 25px;
+            font-size: 1.05em;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .tech-badge {
+            background: rgba(255, 255, 255, 0.03);
+            color: #a0a0a0;
+            padding: 6px 14px;
+            border-radius: 2px;
+            font-size: 0.85em;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            font-weight: 300;
+        }
+
+        .achievement {
+            background: rgba(76, 175, 80, 0.1);
+            border-left: 2px solid #4caf50;
+            padding: 14px 18px;
+            margin-top: 20px;
+            border-radius: 2px;
+            font-size: 0.95em;
+            color: #81c784;
+            font-weight: 300;
+        }
+
+        .project-link {
+            display: inline-block;
+            background: #ffffff;
+            color: #0a0a0a;
+            padding: 12px 28px;
+            border-radius: 2px;
+            text-decoration: none;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            font-size: 0.95em;
+            letter-spacing: 0.02em;
+        }
+
+        .project-link:hover {
+            background: #e0e0e0;
+            transform: translateX(5px);
+        }
+
+        .contact {
+            background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+            padding: 40px;
+            border-radius: 2px;
+            text-align: center;
+            border: 1px solid #2a2a2a;
+            margin-top: 60px;
+        }
+
+        .contact h2 {
+            color: #ffffff;
+            margin-bottom: 30px;
+            font-size: 1.8em;
+            font-weight: 300;
+            letter-spacing: -0.01em;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #ffffff;
+            color: #0a0a0a;
+            padding: 12px 28px;
+            border-radius: 2px;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.95em;
+            transition: all 0.3s ease;
+            letter-spacing: 0.02em;
+        }
+
+        .contact-icon {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .contact-btn:hover {
+            background: #e0e0e0;
+            transform: translateY(-3px);
+        }
+
+        .profile-img {
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .profile-img:hover {
+            border-color: #ffffff;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 1024px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+                margin-bottom: 60px;
+            }
+
+            h1 {
+                font-size: 3.2em;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 60px 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .subtitle {
+                font-size: 1.2em;
+            }
+
+            .section h2 {
+                font-size: 2em;
+            }
+
+            .about, .project-card, .contact {
+                padding: 35px;
+            }
+
+            .container {
+                padding: 40px 20px;
+            }
+
+            header {
+                margin-bottom: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="imgs/pp.jpg" alt="Iván Sebastián Loor Weir" class="profile-img">
+            <div class="header-text">
+                <h1>Iván Sebastián Loor Weir</h1>
+                <p class="subtitle">Cloud Engineer | Azure Administrator | Automation Specialist </p>
+            </div>
+        </header>
+
+        <div class="about">
+            <h2>About Me</h2>
+            <p>I'm a Computer Engineer specialized in <strong>automation</strong>, <strong>advanced troubleshooting</strong>, and <strong>scalable cloud architectures</strong>. My focus is on creating solutions that solve real-world problems through intelligent scripting, infrastructure as code, and robust monitoring systems.</p>
+            
+            <p><strong>My Work Philosophy:</strong></p>
+            <ul>
+                <li>Clear and reproducible technical documentation</li>
+                <li>Automation of repetitive and error-prone processes</li>
+                <li>Design of resilient systems with self-remediation</li>
+                <li>Constant technical curiosity and continuous learning</li>
+            </ul>
+
+            <div class="skills">
+                <span class="skill-tag">Azure Cloud</span>
+                <span class="skill-tag">Terraform</span>
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">Kubernetes</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Bash</span>
+                <span class="skill-tag">PowerShell</span>
+                <span class="skill-tag">Zabbix</span>
+                <span class="skill-tag">Grafana</span>
+                <span class="skill-tag">Prometheus</span>
+                <span class="skill-tag">CI/CD</span>
+                <span class="skill-tag">IoT</span>
+                <span class="skill-tag">MongoDB</span>
+                <span class="skill-tag">Cassandra</span> 
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">PHP</span>
+                <span class="skill-tag">C++</span>
+                <span class="skill-tag">C</span>
+                <span class="skill-tag">Javascript</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>DevOps & Cloud Infrastructure</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Zabbix Metrics Azure Exporter <span class="stars">2 stars</span></h3>
+                    <p>Serverless Azure Function that exports Zabbix monitoring metrics to Excel and sends automated reports to Microsoft Teams.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">Azure Functions</span>
+                        <span class="tech-badge">Terraform</span>
+                        <span class="tech-badge">Blob Storage</span>
+                    </div>
+                    <div class="achievement">Complete automation of monitoring reports pipeline with IaC deployment</div>
+                    <a href="https://github.com/sebas80sebas/zabbix-metrics-azure-exporter" class="project-link" target="_blank">View Repository</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Monitoring & Observability</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Zabbix Azure Traffic Manager Monitoring <span class="stars">2 stars</span></h3>
+                    <p>Python script that collects Azure Traffic Manager metrics (endpoint health, QPS, routing config) from Azure Monitor API for Zabbix integration.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">Azure Monitor</span>
+                        <span class="tech-badge">Zabbix API</span>
+                    </div>
+                    <div class="achievement">Complete Traffic Manager visibility in unified monitoring dashboard</div>
+                    <a href="https://github.com/sebas80sebas/zabbix-azure-trafficmanager-monitoring" class="project-link" target="_blank">View Repository</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Zabbix ExpressRoute Monitoring <span class="stars">2 stars</span></h3>
+                    <p>Automated Azure ExpressRoute monitoring: ingress/egress bandwidth, utilization, ARP/BGP availability, and circuit health.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">Azure Monitor</span>
+                        <span class="tech-badge">Zabbix</span>
+                    </div>
+                    <div class="achievement">Deep integration with Azure APIs for critical network service monitoring</div>
+                    <a href="https://github.com/sebas80sebas/zabbix-expressroute-monitoring" class="project-link" target="_blank">View Repository</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>IoT & Distributed Systems</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>TachoTrack <span class="stars">1 star</span></h3>
+                    <p>Digital tachograph simulation system with cloud IoT integration. Dockerized components (Control Unit, GPS, Odometer, Card Reader) connected to ThingsBoard.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">Docker</span>
+                        <span class="tech-badge">MQTT</span>
+                        <span class="tech-badge">ThingsBoard</span>
+                    </div>
+                    <div class="achievement">Complete IoT architecture with real-time visualization and realistic data generation</div>
+                    <a href="https://github.com/sebas80sebas/TachoTrack" class="project-link" target="_blank">View Repository</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Distributed Systems UC3M <span class="stars">2 stars</span></h3>
+                    <p>Distributed P2P file-sharing system with client-server architecture, temporal logging, and distributed RPC-based logging.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">RPC</span>
+                        <span class="tech-badge">Distributed Systems</span>
+                    </div>
+                    <div class="achievement">Implemented robust P2P communication protocol with distributed logging</div>
+                    <a href="https://github.com/sebas80sebas/distributed-systems-uc3m" class="project-link" target="_blank">View Repository</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>DAGonStar Containers</h3>
+                    <p>Python-based workflow engine for running parallel jobs across local machines, HPC clusters, containers, and cloud infrastructures using direct acyclic graphs.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">Docker</span>
+                        <span class="tech-badge">Workflow Engine</span>
+                        <span class="tech-badge">HPC</span>
+                    </div>
+                    <div class="achievement">Orchestrates complex computational workflows from local to distributed cloud environments</div>
+                    <a href="https://github.com/sebas80sebas/dagonstar-containers" class="project-link" target="_blank">View Repository</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Databases & Data Engineering</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>MongoDB Migration <span class="stars">1 star</span></h3>
+                    <p>Complete ETL project for MongoDB: cleaning, normalization, and restructuring of 15,807 billing documents from Streamit platform.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">MongoDB</span>
+                        <span class="tech-badge">ETL</span>
+                    </div>
+                    <div class="achievement">59.7% storage reduction and complete redundancy elimination through effective normalization</div>
+                    <a href="https://github.com/sebas80sebas/mongodb-migration" class="project-link" target="_blank">View Repository</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Cassandra Query-Driven Design</h3>
+                    <p>Scalable Cassandra data model for Titanic passenger analysis with denormalized tables, balanced partitions, and optimized clustering.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Cassandra</span>
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">NoSQL</span>
+                    </div>
+                    <div class="achievement">Optimized data model for high-performance Titanic dataset analysis</div>
+                    <a href="https://github.com/sebas80sebas/cassandra-query-driven-design" class="project-link" target="_blank">View Repository</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Oracle E-commerce Database <span class="stars">1 star</span></h3>
+                    <p>Relational database system for coffee e-commerce built in Oracle SQL/PL-SQL with advanced queries, procedures, triggers, and optimizations.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Oracle SQL</span>
+                        <span class="tech-badge">PL/SQL</span>
+                        <span class="tech-badge">Database Design</span>
+                    </div>
+                    <div class="achievement">Designed complex relational schema with optimized PL/SQL procedures</div>
+                    <a href="https://github.com/sebas80sebas/oracle-ecommerce-database" class="project-link" target="_blank">View Repository</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Automation & Scripting</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Azure Auto-Remediation 503 <span class="stars">2 stars</span></h3>
+                    <p>Auto-remediation system that detects HTTP 503 errors via Application Insights and executes PowerShell runbooks to resolve them automatically.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Azure Monitor</span>
+                        <span class="tech-badge">KQL</span>
+                        <span class="tech-badge">PowerShell</span>
+                        <span class="tech-badge">Automation</span>
+                    </div>
+                    <div class="achievement">Reduced incident response time through automatic remediation without human intervention</div>
+                    <a href="https://github.com/sebas80sebas/azure-auto-remediation-503" class="project-link" target="_blank">View Repository</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>No-RDP Zabbix Agent Installer</h3>
+                    <p>PowerShell script to install Zabbix Agent on Azure Windows VMs using Run Command - no RDP or credentials required.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">PowerShell</span>
+                        <span class="tech-badge">Azure CLI</span>
+                        <span class="tech-badge">Zabbix</span>
+                    </div>
+                    <div class="achievement">Secure and scalable deployment of monitoring agents in cloud environments</div>
+                    <a href="https://github.com/sebas80sebas/no-rdp-zabbix-agent-installer" class="project-link" target="_blank">View Repository</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Teams Webhook Workflow</h3>
+                    <p>Power Automate flow that creates a dynamic message distribution system for Teams with conditional routing logic via HTTP POST webhooks.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Power Automate</span>
+                        <span class="tech-badge">Teams</span>
+                        <span class="tech-badge">Webhooks</span>
+                    </div>
+                    <div class="achievement">Automated dynamic message routing using Power Automate and webhooks</div>
+                    <a href="https://github.com/sebas80sebas/teams-webhook-workflow" class="project-link" target="_blank">View Repository</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Azure VM RDP Testing</h3>
+                    <p>Resilient execution system on Azure Windows VMs ensuring applications continue running after RDP disconnect using NSSM Windows services.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Batch</span>
+                        <span class="tech-badge">PowerShell</span>
+                        <span class="tech-badge">NSSM</span>
+                    </div>
+                    <div class="achievement">Reliable background process execution using NSSM on Azure VMs</div>
+                    <a href="https://github.com/sebas80sebas/azure-vm-rdp-testing" class="project-link" target="_blank">View Repository</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Academic & Complex Systems</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>MindChess <span class="stars">4 stars</span></h3>
+                    <p>Voice-controlled chess for blindfold training and accessibility. Allows master players to sharpen visualization skills and blind players to compete independently.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">JavaScript</span>
+                        <span class="tech-badge">Speech Recognition</span>
+                    </div>
+                    <div class="achievement">Accessibility tool democratizing high-level chess</div>
+                    <a href="https://github.com/sebas80sebas/MindChess" class="project-link" target="_blank">View Repository</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Autonomous Rescue System <span class="stars">3 stars</span></h3>
+                    <p>C++ controller for Pioneer II robot: autonomous victim rescue across 10 scenarios using computer vision, compass navigation, and optimized pathfinding in Webots.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">C++</span>
+                        <span class="tech-badge">Computer Vision</span>
+                        <span class="tech-badge">Robotics</span>
+                    </div>
+                    <div class="achievement">Won complex robotics navigation scenarios with optimized pathfinding</div>
+                    <a href="https://github.com/sebas80sebas/autonomous-rescue-system" class="project-link" target="_blank">View Repository</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Simple C Shell</h3>
+                    <p>Shell implementation in C supporting pipelines, I/O redirection, and background processes. Developed as practical exercise for OS course.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">C</span>
+                        <span class="tech-badge">POSIX</span>
+                        <span class="tech-badge">Operating Systems</span>
+                    </div>
+                    <div class="achievement">Deep understanding of Linux process management and system calls</div>
+                    <a href="https://github.com/sebas80sebas/simple-c-shell" class="project-link" target="_blank">View Repository</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>C Bank Simulation <span class="stars">1 star</span></h3>
+                    <p>Banking simulation using producer-consumer model with multiple threads to process transactions concurrently. Demonstrates multithreading and synchronization with pthreads.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">C</span>
+                        <span class="tech-badge">Pthreads</span>
+                        <span class="tech-badge">Concurrency</span>
+                    </div>
+                    <div class="achievement">Thread-safe circular buffer implementation for inter-thread communication</div>
+                    <a href="https://github.com/sebas80sebas/C-Bank-Simulation" class="project-link" target="_blank">View Repository</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>POSIX Message Queue Key-Value Store</h3>
+                    <p>Client-server key-value store using POSIX message queues for inter-process communication with file-based persistence and multi-threaded server.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">C</span>
+                        <span class="tech-badge">POSIX MQ</span>
+                        <span class="tech-badge">IPC</span>
+                    </div>
+                    <div class="achievement">Efficient IPC implementation with persistent storage and thread-safe operations</div>
+                    <a href="https://github.com/sebas80sebas/posix-mq-kv-store" class="project-link" target="_blank">View Repository</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>C RPC Key-Value Store</h3>
+                    <p>File-based key-value store using Remote Procedure Call (RPC). Client-server architecture with file persistence and thread-safe operations using TIRPC.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">C</span>
+                        <span class="tech-badge">RPC</span>
+                        <span class="tech-badge">TIRPC</span>
+                    </div>
+                    <div class="achievement">Clean RPC abstraction with automated stub generation using rpcgen</div>
+                    <a href="https://github.com/sebas80sebas/c-rpc-key-value-store" class="project-link" target="_blank">View Repository</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact">
+            <h2>Let's Connect</h2>
+            <div class="contact-links">
+                <a href="https://github.com/sebas80sebas" class="contact-btn" target="_blank">
+                    <img src="imgs/github.png" alt="GitHub" class="contact-icon">
+                    GitHub Profile
+                </a>
+                <a href="https://www.linkedin.com/in/iván-sebastián-loor-weir-386305271" class="contact-btn" target="_blank">
+                    <img src="imgs/linkedin.png" alt="LinkedIn" class="contact-icon">
+                    LinkedIn
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
